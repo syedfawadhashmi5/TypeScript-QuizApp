@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import QuestionCard from './Quiz_Services/QuestionCard';
 import {fetchQuizQuestions, Difficulty, QuestionsState} from './Api';
-
+import { GlobalStyle, Wrapper } from './App.styles';
 const TOTAL_QUESTION = 10;
 
 export type AnswerObject = {
@@ -63,7 +63,9 @@ console.log(Question)
 
 
   return (
-    <div className="App">
+    <>
+    <GlobalStyle />
+    <Wrapper>
       <h1>Quiz</h1>
       {GameOver || UserAnswer.length === TOTAL_QUESTION ? ( 
       <button className="start" onClick={startQuiz} >
@@ -74,7 +76,7 @@ console.log(Question)
       Score : {score}
       </p>) : null}
       {Loding ? (
-      <p>
+      <p className="loding">
       Loding
       </p>) : null}
       {!Loding && !GameOver ? (
@@ -87,10 +89,11 @@ console.log(Question)
         callback={checkAnswer}
       />) : null}
       {!GameOver && !Loding && UserAnswer.length === Number + 1 && Number !== TOTAL_QUESTION - 1 ? (
-      <button className="Next-Quiz" onClick={nextQuiz}>
+      <button  className='next' onClick={nextQuiz}>
       Next 
       </button>) : null} 
-    </div>
+    </Wrapper>
+    </>
   );
 }
 
