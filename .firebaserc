@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "quiz-web-app-v1"
+    "default": "expense-tracker-97e20",
+    "ds": "quiz-web-app-v1"
   }
 }
