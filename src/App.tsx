@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import QuestionCard from './Quiz_Services/QuestionCard';
 import {fetchQuizQuestions, Difficulty, QuestionsState} from './Api';
 import { GlobalStyle, Wrapper } from './App.styles';
+
+import { GetToken } from './services/firebaseService';
+
 const TOTAL_QUESTION = 10;
 
 export type AnswerObject = {
@@ -12,6 +15,8 @@ export type AnswerObject = {
 };
 
 function App() {
+
+  GetToken();
 
 const [Loding, SetLoding] = useState(false);
 const [Question, SetQuestion] = useState<QuestionsState[]>([]);
